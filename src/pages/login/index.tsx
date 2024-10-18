@@ -46,7 +46,7 @@ export function Login() {
       })
       .catch((error) => {
         //console.log("erro ao logar");
-        // console.log(error);
+        console.log(error);
       });
   }
 

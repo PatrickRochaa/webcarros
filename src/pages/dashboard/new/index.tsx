@@ -145,7 +145,7 @@ export function New() {
         Toast.success("cadastrado com sucesso");
       })
       .catch((error) => {
-        //console.log(error);
+        console.log(error);
         //console.log("erro ao cadastrar no DB");
       });
   }
@@ -164,6 +164,7 @@ export function New() {
       setCarImages(carImages.filter((car) => car.url !== item.url));
     } catch (err) {
       console.log("erro o deletar");
+      console.log(err);
     }
   }
 
