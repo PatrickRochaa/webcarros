@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import logoImg from "../../assets/logo.svg";
+import logoImg from "../../assets/logo.png";
 import { Container } from "../../components/container";
 import { Input } from "../../components/input";
 import { useEffect } from "react";
