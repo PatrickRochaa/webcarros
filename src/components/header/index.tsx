@@ -2,7 +2,7 @@ import { useContext, useState, useRef, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Link, useLocation } from "react-router-dom";
 import { FiUser, FiLogIn, FiChevronDown } from "react-icons/fi"; // Importando o ícone da seta
-import logoImg from "../../assets/logo.svg";
+import logoImg from "../../assets/logo.png";
 import Toast from "react-hot-toast";
 import { auth } from "../../services/firebaseConnection";
 import { signOut } from "firebase/auth";
