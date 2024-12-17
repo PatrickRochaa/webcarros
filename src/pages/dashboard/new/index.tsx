@@ -33,7 +33,7 @@ const schema = z.object({
     .refine((value) => /^(\d{11,12})$/.test(value), {
       message: "Número invalido",
     }),
-  description: z.string().min(1, "O campo descriçao é obrigatório"),
+  description: z.string().min(1, "O campo descrição é obrigatório"),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -307,7 +307,7 @@ export function New() {
 
           <button
             type="submit"
-            className="w-full rounded-md bg-zinc-900 text-white font-medium h-10"
+            className="w-full rounded-lg bg-zinc-900 text-white font-medium h-10"
           >
             Cadastrar
           </button>

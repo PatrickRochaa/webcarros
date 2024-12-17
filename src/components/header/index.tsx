@@ -66,6 +66,7 @@ export function Header() {
                       <Link
                         to="/"
                         className="block px-4 py-2 hover:bg-gray-100"
+                        onClick={() => setMenuOpen(false)} // Fecha o menu ao clicar
                       >
                         Inicio
                       </Link>
@@ -74,12 +75,14 @@ export function Header() {
                         <Link
                           to="/dashboard"
                           className="block px-4 py-2 hover:bg-gray-100"
+                          onClick={() => setMenuOpen(false)} // Fecha o menu ao clicar
                         >
                           Dashboard
                         </Link>
                         <Link
                           to="/dashboard/new"
                           className="block px-4 py-2 hover:bg-gray-100"
+                          onClick={() => setMenuOpen(false)} // Fecha o menu ao clicar
                         >
                           Cadastrar Carro
                         </Link>
