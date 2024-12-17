@@ -105,6 +105,27 @@ export function CarDetail() {
     };
   }, []);
 
+  // Função para formatar o nome
+  function formatName(name: string): string {
+    // Separar o nome em palavras
+    const firstName = name.split(" ")[0];
+    // Retornar o primeiro nome com a primeira letra em maiúscula
+    return firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
+  }
+
+  //formatando exibiçao whatsApp
+  function formatPhoneNumber(phone: string): string {
+    const cleaned = phone.replace(/\D/g, ""); // Remove caracteres não numéricos
+    const match = cleaned.match(/^(\d{2})(\d{1})(\d{4})(\d{4})$/);
+
+    if (match) {
+      return `(${match[1]}) ${match[2]} ${match[3]}-${match[4]}`;
+    }
+
+    // Retorna o número original se não corresponder ao formato esperado
+    return phone;
+  }
+
   return (
     <Container>
       {car && (
@@ -131,9 +152,7 @@ export function CarDetail() {
             <h1 className="font-bold text-3xl text-black">{car?.name}</h1>
             <h1 className="font-bold text-3xl text-black">R$ {car?.price}</h1>
           </div>
-
           <p>{car?.model}</p>
-
           <div className="w-full flex gap-6 my-4">
             <div className="flex flex-col gap-4">
               <div>
@@ -154,21 +173,21 @@ export function CarDetail() {
               </div>
             </div>
           </div>
-
           <strong>Descrição</strong>
           <p className="mb-4">{car?.description}</p>
-
           <strong>Telefone / WhatsApp</strong>
-          <p>{car?.whatsapp}</p>
+          <p>{formatPhoneNumber(car?.whatsapp || "")}</p>
 
-          <a
-            className="bg-green-500 w-full text-white flex items-center justify-center gap-2 my-6 h-11 text-xl rounded-lg font-medium cursor-pointer"
-            href={`https://api.whatsapp.com/send?phone=${car?.whatsapp}&text=Olá vi esse ${car?.name} no site WebCarros e fiquei interessado.`}
-            target="_blank"
-          >
-            Conversar com vendedor
-            <MdWhatsapp size={26} color="#fff" />
-          </a>
+          {car && (
+            <a
+              className="bg-green-500 w-full text-white flex items-center justify-center gap-2 my-6 h-11 text-xl rounded-lg font-medium cursor-pointer"
+              href={`https://api.whatsapp.com/send?phone=${car?.whatsapp}&text=Olá vi esse ${car?.name} no site WebCarros e fiquei interessado.`}
+              target="_blank"
+            >
+              Conversar com {car.owner ? formatName(car.owner) : "vendedor"}
+              <MdWhatsapp size={26} color="#fff" />
+            </a>
+          )}
         </main>
       )}
     </Container>
