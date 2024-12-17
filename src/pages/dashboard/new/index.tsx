@@ -70,7 +70,7 @@ export function New() {
         //enviar a imagem para o banco de dados
         await handleUpload(image);
       } else {
-        alert("Envie uma imagem jpeg ou png");
+        Toast.error("Envie uma imagem jpeg ou png");
         return;
       }
     }
@@ -110,7 +110,7 @@ export function New() {
   function onSubmit(data: FormData) {
     //nao deixando cadastrar carro sem imagem
     if (carImages.length === 0) {
-      alert("Envie alguma foto do carro");
+      Toast.error("Envie alguma foto do carro");
       return;
     }
 

@@ -121,7 +121,7 @@ export function Edit() {
 
       // Verificar o tipo da imagem
       if (file.type !== "image/jpeg" && file.type !== "image/png") {
-        alert("Envie uma imagem jpeg ou png");
+        Toast.error("Envie uma imagem jpeg ou png");
         continue;
       }
 
