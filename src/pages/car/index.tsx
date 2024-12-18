@@ -139,7 +139,7 @@ export function CarDetail() {
             <SwiperSlide key={image.name}>
               <img
                 src={image.url}
-                className="w-full object-cover h-full"
+                className="w-full object-cover md:h-full h-90"
                 alt={`foto do carro ${car?.name}`}
               />
             </SwiperSlide>
