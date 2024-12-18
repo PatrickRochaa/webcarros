@@ -149,7 +149,7 @@ export function Home() {
 
               <img
                 src={car.images[0].url}
-                alt="foto do carro"
+                alt={`foto do carro ${car.name}`}
                 className="w-full rounded-lg h-52 mb-2 hover:scale-105 transition-all"
                 style={{
                   display: loadImages.includes(car.id) ? "block" : "none",
