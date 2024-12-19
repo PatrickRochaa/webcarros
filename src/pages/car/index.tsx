@@ -135,8 +135,8 @@ export function CarDetail() {
           navigation
           className="w-full h-72 block -z-50"
         >
-          {car?.images.map((image) => (
-            <SwiperSlide key={image.name}>
+          {car?.images.map((image, index) => (
+            <SwiperSlide key={`${image.uid}-${index}`}>
               <img
                 src={image.url}
                 className="w-full object-cover md:h-full h-90 rounded-lg"
