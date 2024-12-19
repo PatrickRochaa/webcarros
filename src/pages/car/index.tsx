@@ -133,13 +133,13 @@ export function CarDetail() {
           slidesPerView={slidePreview}
           pagination={{ clickable: true }}
           navigation
-          className="w-full h-72"
+          className="w-full h-72 block -z-50"
         >
           {car?.images.map((image) => (
             <SwiperSlide key={image.name}>
               <img
                 src={image.url}
-                className="w-full object-cover md:h-full h-90"
+                className="w-full object-cover md:h-full h-90 rounded-lg"
                 alt={`foto do carro ${car?.name}`}
               />
             </SwiperSlide>

@@ -47,6 +47,7 @@ export function Login() {
       .catch((error) => {
         //console.log("erro ao logar");
         console.log(error);
+        Toast.error("Erro ao fazer Login!");
       });
   }
 

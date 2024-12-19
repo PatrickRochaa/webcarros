@@ -32,6 +32,21 @@ export function Header() {
     };
   }, []);
 
+  // UseEffect para monitorar o estado do menu
+  useEffect(() => {
+    const slide = document.querySelector(".swiper");
+
+    if (slide) {
+      if (menuOpen) {
+        // Quando o menu está aberto, adiciona a classe "negativo"
+        slide.classList.add("negativo");
+      } else {
+        // Quando o menu está fechado, remove a classe "negativo"
+        slide.classList.remove("negativo");
+      }
+    }
+  }, [menuOpen]); // A dependência é o estado menuOpen
+
   // Verifica se o usuário está em uma das páginas especificadas
   const isOnDashboard = location.pathname === "/dashboard";
   const isOnNewCar = location.pathname === "/dashboard/new";
@@ -59,13 +74,14 @@ export function Header() {
                 {/* Menu */}
                 {menuOpen && (
                   <div
+                    id="opened"
                     ref={menuRef} // Aplica a referência para detectar cliques fora
-                    className="absolute right-0 bg-white border border-gray-300 shadow-lg rounded-md mt-2 p-2"
+                    className="absolute right-0 bg-white border border-gray-300 shadow-lg rounded-md mt-2 p-2 z-10"
                   >
                     {isOnDashboard || isOnNewCar ? ( // Se estiver no Dashboard ou na página de Cadastrar Carro
                       <Link
                         to="/"
-                        className="block px-4 py-2 hover:bg-gray-100"
+                        className="block px-4 py-2 hover:bg-gray-100 z-50"
                         onClick={() => setMenuOpen(false)} // Fecha o menu ao clicar
                       >
                         Inicio
@@ -74,14 +90,14 @@ export function Header() {
                       <>
                         <Link
                           to="/dashboard"
-                          className="block px-4 py-2 hover:bg-gray-100"
+                          className="block px-4 py-2 hover:bg-gray-100 z-50"
                           onClick={() => setMenuOpen(false)} // Fecha o menu ao clicar
                         >
                           Dashboard
                         </Link>
                         <Link
                           to="/dashboard/new"
-                          className="block px-4 py-2 hover:bg-gray-100"
+                          className="block px-4 py-2 hover:bg-gray-100 z-50"
                           onClick={() => setMenuOpen(false)} // Fecha o menu ao clicar
                         >
                           Cadastrar Carro
@@ -92,7 +108,7 @@ export function Header() {
                     {!isOnDashboard && !isOnNewCar && (
                       <Link
                         to="/"
-                        className="block px-4 py-2 text-red-600 hover:bg-gray-100"
+                        className="block px-4 py-2 text-red-600 hover:bg-gray-100 z-50"
                         onClick={handleLogout} // Chama a função de logout
                       >
                         Sair
