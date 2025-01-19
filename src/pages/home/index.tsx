@@ -5,6 +5,9 @@ import { db } from "../../services/firebaseConnection";
 
 import { Container } from "../../components/container/index";
 
+//banner
+import { Propaganda } from "../../components/propaganda/banner";
+
 //tipagem para exbir os carros na pagina inicial
 export interface CarsProps {
   id: string;
@@ -116,6 +119,11 @@ export function Home() {
 
   return (
     <Container>
+      {/*Banner Propaganda*/}
+      <div className="w-full max-w-[1200px] h-[160px] drop-shadow  relative mb-3">
+        <Propaganda />
+      </div>
+
       <section className="bg-white p-4 rounded-lg w-full max-w-3xl mx-auto flex justify-center items-center gap-2">
         <input
           type="text"
