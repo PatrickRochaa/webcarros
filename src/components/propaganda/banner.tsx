@@ -14,7 +14,7 @@ export function Propaganda() {
     },
     {
       img: bannerMarketPlace,
-      link: "https://webcarros-lovat-two.vercel.app/",
+      link: "https://marketplace-eosin-seven.vercel.app/",
     },
   ];
 
